@@ -1,9 +1,9 @@
-from environs import Env
 import os
-# environs kutubxonasidan foydalanish
+
+from environs import Env
+
 env = Env()
 env.read_env()
 
-# .env fayl ichidan quyidagilarni o'qiymiz
-BOT_TOKEN = env.str("TOKEN")  # Bot toekn
-ADMINS = env.list("ADMINS")  # adminlar ro'yxati
+BOT_TOKEN = str(os.environ.get("TOKEN"))  # Bot token
+ADMINS = str(os.environ.get("ADMINS"))  # Admin ID
