@@ -27,7 +27,7 @@ async def set_state_to_cyril(message: types.Message):
 @dp.message_handler(state=ConversationState.tolatin, content_types='document')
 async def convert_to_latin(message: types.Message):
     file_name = f'downloads/documents/{message.document.file_name}'
-    if not file_name.endswith('.txt'):
+    if not file_name.endswith('.txt') or not file_name.endswith('.docx'):
         await message.answer('<b>Please send only text document ⚠️ </b>')
         return
     await message.document.download(destination_file=file_name)
